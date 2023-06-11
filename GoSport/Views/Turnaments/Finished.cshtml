@@ -1,0 +1,97 @@
+﻿@{
+    var myTournaments = TempData["myTournaments"] as Dictionary<Tournaments, int>;
+    var mySubscriptions = TempData["mySubscriptions"] as Dictionary<Registrations, int>;
+    var Success = TempData["Success"] as string;
+    var Error = TempData["Error"] as string;
+}
+@if (!string.IsNullOrEmpty(Success))
+{
+    <div class="alert-success">
+        @Success
+    </div>
+}
+@if (!string.IsNullOrEmpty(Error))
+{
+    <div class="alert-danger">
+        @Error
+    </div>
+}
+<div class="container-fluid">
+    <div class="d-inline-flex justify-content-center">
+        <h2>Vos Tournois</h2>
+        <a asp-controller="Turnaments" asp-action="Create">
+            <img class="m-lg-2" src="/img/ajouter.png" height="24" width="24" />
+        </a>
+    </div>
+    <table class="table-bordered table-responsive-lg w-100 text-center">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Sport</th>
+                <th>Nb de Participants</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (myTournaments != null)
+            {
+                foreach (GoSportData.Classes.Tournaments tournament in myTournaments.Keys)
+                {
+                    <tr>
+                        <td>@tournament.Title</td>
+                        <td>@tournament.Date.Date.ToString("dd/MM/yyyy")</td>
+                        <td>@tournament.Sport!.Name</td>
+                        <td>@myTournaments[tournament] / @tournament.MaxUsers</td>
+                        <td>
+                            <a asp-controller="Turnaments" asp-action="AddResults" asp-route-id="@tournament.Id" title="Modifier">
+                                <img src="/img/turnaments.png" height="24" width="24" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <h2 class="mt-4">Mes Inscriptions</h2>
+    <table class="table-bordered table-responsive-lg w-100 text-center">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Sport</th>
+                <th>Nb de Participants</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (mySubscriptions != null)
+            {
+                foreach (Registrations registration in mySubscriptions.Keys)
+                {
+                    <tr>
+                        <td>@registration.Tournament!.Title</td>
+                        <td>@registration.Tournament!.Date.Date.ToString("dd/MM/yyyy")</td>
+                        <td>@registration.Tournament!.Sport!.Name</td>
+                        <td>@mySubscriptions[registration] / @registration.Tournament!.MaxUsers</td>
+                        <td>
+                            <a asp-controller="Turnaments" asp-action="Unsubscribe" asp-route-UserId="@registration.User!.Id" asp-route-TurnamentId="@registration.Tournament!.Id" title="Se Désinscrire">
+                                <img src="/img/delete.png" height="24" width="24" />
+                            </a>
+                            <a asp-controller="Turnaments" asp-action="ViewDetails" asp-route-id="@registration.Tournament!.Id" title="Informations">
+                                <img src="/img/delete.png" height="24" width="24" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

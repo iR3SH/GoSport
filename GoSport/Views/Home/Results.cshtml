@@ -1,0 +1,32 @@
+﻿@{
+    var Results = TempData["Results"] as Dictionary<GoSportData.Classes.Results, int>;
+}
+<div class="container-fluid">
+    <h2>Résultats du Tournois</h2>
+    <table class="table-bordered table-responsive-lg w-100 text-center">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Sport</th>
+                <th>Genre</th>
+                <th>Nb de Participants</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Results != null)
+            {
+                @foreach (Results result in Results.Keys)
+                {
+                    <tr>
+                        <td>@result.User!.FirstName @result.User.LastName</td>
+                        <td>@result.Tournament!.Date.Date.ToString("dd / MM / yyyy")</td>
+                        <td>@result.Tournament!.Sport!.Name</td>
+                        <td>@result.Tournament!.Gender!.Name</td>
+                        <td>@Results[result] / @result.Tournament.MaxUsers</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

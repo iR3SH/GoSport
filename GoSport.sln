@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoSport", "GoSport\GoSport.csproj", "{CDACAFC0-91CD-44EA-8D69-5A0A67B2DB1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoSportData", "GoSportData\GoSportData.csproj", "{68D0512F-78F6-4721-99B1-5BD47D938838}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDACAFC0-91CD-44EA-8D69-5A0A67B2DB1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDACAFC0-91CD-44EA-8D69-5A0A67B2DB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDACAFC0-91CD-44EA-8D69-5A0A67B2DB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDACAFC0-91CD-44EA-8D69-5A0A67B2DB1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68D0512F-78F6-4721-99B1-5BD47D938838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68D0512F-78F6-4721-99B1-5BD47D938838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68D0512F-78F6-4721-99B1-5BD47D938838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68D0512F-78F6-4721-99B1-5BD47D938838}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B5509DA-7718-4B97-9B74-C9EDF109C8D4}
+	EndGlobalSection
+EndGlobal

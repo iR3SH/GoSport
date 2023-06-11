@@ -1,0 +1,38 @@
+﻿@{
+    var Turnaments = TempData["Turnaments"] as Dictionary<Tournaments, int>;
+}
+<div class="container-fluid">
+    <h2>Liste des tournois disponibles</h2>
+    <table class="table-bordered table-responsive-lg w-100 text-center">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Sport</th>
+                <th>Genre</th>
+                <th>Nb de Participants</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Turnaments != null)
+            {
+                @foreach (Tournaments tournament in Turnaments.Keys)
+                {
+                    <tr>
+                        <td>@tournament.Title</td>
+                        <td>@tournament.Date.Date.ToString("dd/MM/yyyy")</td>
+                        <td>@tournament.Sport!.Name</td>
+                        <td>@tournament.Gender!.Name</td>
+                        <td>@Turnaments[tournament] / @tournament.MaxUsers</td>
+                        <td>
+                            <a asp-controller="Turnaments" asp-action="Subscribe" asp-route-id="@tournament.Id" title="S'inscrire'">
+                                <img src="/img/turnaments.png" height="24" width="24" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,14 @@
+C:\Users\julie\source\repos\GoSport\GoSportData\bin\Debug\net7.0\GoSportData.deps.json
+C:\Users\julie\source\repos\GoSport\GoSportData\bin\Debug\net7.0\GoSportData.runtimeconfig.json
+C:\Users\julie\source\repos\GoSport\GoSportData\bin\Debug\net7.0\GoSportData.dll
+C:\Users\julie\source\repos\GoSport\GoSportData\bin\Debug\net7.0\GoSportData.pdb
+C:\Users\julie\source\repos\GoSport\GoSportData\obj\Debug\net7.0\GoSportData.csproj.AssemblyReference.cache
+C:\Users\julie\source\repos\GoSport\GoSportData\obj\Debug\net7.0\GoSportData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\julie\source\repos\GoSport\GoSportData\obj\Debug\net7.0\GoSportData.AssemblyInfoInputs.cache
+C:\Users\julie\source\repos\GoSport\GoSportData\obj\Debug\net7.0\GoSportData.AssemblyInfo.cs
+C:\Users\julie\source\repos\GoSport\GoSportData\obj\Debug\net7.0\GoSportData.csproj.CoreCompileInputs.cache
+C:\Users\julie\source\repos\GoSport\GoSportData\obj\Debug\net7.0\GoSportData.dll
+C:\Users\julie\source\repos\GoSport\GoSportData\obj\Debug\net7.0\refint\GoSportData.dll
+C:\Users\julie\source\repos\GoSport\GoSportData\obj\Debug\net7.0\GoSportData.pdb
+C:\Users\julie\source\repos\GoSport\GoSportData\obj\Debug\net7.0\GoSportData.genruntimeconfig.cache
+C:\Users\julie\source\repos\GoSport\GoSportData\obj\Debug\net7.0\ref\GoSportData.dll

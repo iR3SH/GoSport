@@ -1,0 +1,57 @@
+﻿@model AddResultsViewModel
+@{
+    var users = ViewData["Users"] as List<Users>;
+    var Turnament = ViewData["Turnament"] as Tournaments;
+    var Results = ViewData["Results"] as List<Results>;
+}
+
+<div class="container-fluid">
+    <h1>
+        Participants
+    </h1>
+
+    <form class="form-control" asp-controller="Turnaments" asp-action="AddResults" asp-route-idTurnament="@Turnament!.Id" method="post">
+        <select class="form-select" asp-for="@Model.IdUser">
+            @if (users != null)
+            {
+                @foreach (Users user in users)
+                {
+                    <option value="@user.Id">@user.FirstName @user.LastName</option>
+                }
+            }
+        </select>
+        <label class="form-label" asp-for="@Model.Score"></label>
+        <input class="form-control" type="text" asp-for="@Model.Score" />
+        <label class="form-label" asp-for="@Model.Position"></label>
+        <input class="form-control" type="number" asp-for="@Model.Position" />
+        <input class="form-control" type="submit" value="Enregistrer"/>
+    </form>
+    <table class="table-bordered table-responsive-lg w-100 text-center">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Score</th>
+                <th>Position</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Results != null)
+            {
+                foreach (Results result in Results)
+                {
+                    <tr>
+                        <td>@result.User!.FirstName @result.User.LastName</td>
+                        <td>@result.Score</td>
+                        <td>@result.Position</td>
+                        <td>
+                            <a asp-controller="Turnaments" asp-action="DeleteResult" asp-route-id="@result.Id" title="Supprimer">
+                                <img src="/img/delete.png" height="24" width="24" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

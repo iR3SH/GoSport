@@ -1,0 +1,36 @@
+﻿@model CreateTurnamentsViewModel
+@{
+    var genders = TempData["Genders"] as List<GoSportData.Classes.Genders>;
+    var sports = TempData["Sports"] as List<GoSportData.Classes.Sports>;
+}
+<div class="container-fluid">
+    <form class="form-control" asp-controller="Turnaments" asp-action="Create">
+        <label class="form-label" asp-for="Title"></label>
+        <input class="form-control" type="text" asp-for="Title" />
+        <label class="form-label" asp-for="Date"></label>
+        <input class="form-control" type="date" asp-for="Date"/>
+        <label class="form-label" asp-for="MaxUsers"></label>
+        <input class="form-control" type="number" asp-for="MaxUsers" />
+        <label class="form-label" asp-for="GenderId"></label>
+        <select class="form-select" asp-for="GenderId">
+            @if(genders != null )
+            {
+                foreach(GoSportData.Classes.Genders gender in genders)
+                {
+                    <option value="@gender.Id">@gender.Name</option>
+                }
+            }
+        </select>
+        <label class="form-label" asp-for="SportId"></label>
+        <select class="form-select" asp-for="SportId">
+            @if (sports != null)
+            {
+                foreach (GoSportData.Classes.Sports sport in sports)
+                {
+                    <option value="@sport.Id">@sport.Name</option>
+                }
+            }
+        </select>
+        <input class="form-control" type="submit" value="Créer mon tournoi"/>
+    </form>
+</div>

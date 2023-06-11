@@ -1,0 +1,54 @@
+﻿@model EditTurnamentsViewModel
+@{
+    var turnament = TempData["Turnament"] as Tournaments;
+    var genders = TempData["Genders"] as List<GoSportData.Classes.Genders>;
+    var sports = TempData["Sports"] as List<GoSportData.Classes.Sports>;
+}
+<div class="container-fluid">
+    <form class="form-control" asp-controller="Turnaments" asp-action="Edit" method="post">
+        <input type="hidden" asp-for="IdTurnament" value="@turnament!.Id"/>
+        <label class="form-label" asp-for="Title"></label>
+        <input class="form-control" type="text" asp-for="Title" value="@turnament.Title" required/>
+        <label class="form-label" asp-for="Date"></label>
+        <input class="form-control" type="date" asp-for="Date" value="@turnament.Date.Date.ToString("yyyy-MM-dd")" id="Date" required />
+        <label class="form-label" asp-for="MaxUsers"></label>
+        <input class="form-control" type="number" asp-for="MaxUsers" value="@turnament.MaxUsers" required />
+        <label class="form-label" asp-for="GenderId"></label>
+        <select class="form-select" asp-for="GenderId" required>
+            @if (genders != null)
+            {
+                foreach (GoSportData.Classes.Genders gender in genders)
+                {
+                    if (gender == turnament.Gender)
+                    {
+                        <option value="@gender.Id" selected>@gender.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@gender.Id">@gender.Name</option>
+                    }
+                }
+            }
+        </select>
+        <label class="form-label" asp-for="SportId"></label>
+        <select class="form-select" asp-for="SportId" required>
+            @if (sports != null)
+            {
+                foreach (GoSportData.Classes.Sports sport in sports)
+                {
+                    if (sport == turnament.Sport)
+                    {
+                        <option value="@sport.Id" selected>@sport.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@sport.Id">@sport.Name</option>
+                    }
+                }
+            }
+        </select>
+        <label class="form-check-label" asp-for="IsOver"></label>
+        <input type="checkbox" class="form-check" asp-for="IsOver" checked="@turnament.IsOver" value="@turnament.IsOver" required/>
+        <input class="form-control" type="submit" value="Mettre à jour mon tournoi" />
+    </form>
+</div>

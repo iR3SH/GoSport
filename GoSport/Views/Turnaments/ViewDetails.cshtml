@@ -1,0 +1,17 @@
+﻿@{
+    var tournament = TempData["Tournament"] as Tournaments;
+}
+<div class="container-fluid">
+    @if (tournament != null)
+    {
+        <h2>@tournament.Title</h2>
+        <label class="form-label" for="Date">Date du Tournoi</label>
+        <input class="form-control" type="text" name="Date" id="Date" value="@tournament.Date.Date.ToString("dd/MM/yyyy")" readonly />
+        <label class="form-label" for="Max">Nombre Maximum de Particpants</label>
+        <input class="form-control" type="text" name="Max" id="Max" value="@tournament.MaxUsers" readonly />
+        <label class="form-label" for="Gender">Tournois défini pour </label>
+        <input class="form-control" type="text" name="Gender" id="Gender" value="@tournament.Gender!.Name" readonly />
+        <label class="form-label" for="Sport">Sport concerné</label>
+        <input class="form-control" type="text" name="Sport" id="Sport" value="@tournament.Sport!.Name" readonly />
+    }
+</div>
